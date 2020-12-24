@@ -26,11 +26,14 @@ public class AutoLogininterceptor extends HandlerInterceptorAdapter {
 		HttpSession session =  request.getSession();
 		//쿠키 있는지 확인 
 		Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+		
 		if(loginCookie != null) { // 만약 있다면 
+			
 			UserVO user = service.getUserWithSessionId(loginCookie.getValue());
+			if(user != null) {
 			session.setAttribute("login", user);
 		}
-		
+		}
 		
 		return true;
 	}

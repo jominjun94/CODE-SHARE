@@ -34,20 +34,21 @@ public class UserController {
 	private IUserService service;
 	
 	
+	
 	@GetMapping("/")
 	public ModelAndView page() {
-		
-	
 		
 		return new ModelAndView("user/page");
 	}
 	
+	
+	
 	@GetMapping("/register")
 	public ModelAndView register(){
-		
-		
+			
 		return new ModelAndView("user/register");
 	}
+	
 	
 	
 	
@@ -58,8 +59,8 @@ public class UserController {
 		view.setViewName("user/page");
 		view.addObject("msg","regSuccess");
 		return view;
-		
 	}
+	
 	
 	
 	
@@ -71,9 +72,11 @@ public class UserController {
 			} else {	
 				System.out.println("null");
 				return "ok";
+			}
+		}
 	
-}
-	}
+	
+	
 	
 	@GetMapping("/login")
 	public ModelAndView login1() {
@@ -81,6 +84,7 @@ public class UserController {
 		
 		return new ModelAndView("user/login");
 	}
+	
 	
 	
 	@PostMapping("/login")
@@ -117,6 +121,9 @@ public class UserController {
 		return result;
 	}
 	
+	
+	
+	
 	//url
 	@GetMapping("/logout")
 	public ModelAndView logout(HttpSession session , HttpServletRequest request , HttpServletResponse response ) {
@@ -142,12 +149,21 @@ public class UserController {
 	
 	
 	
+	
+	
+	
 	//회원 틸퇴 작업 
 	@GetMapping("/delete")
 	public ModelAndView delete() {
 			
 			return new ModelAndView("user/delete");
 		}
+	
+	
+	
+	
+	
+	
 	
 	
 	
