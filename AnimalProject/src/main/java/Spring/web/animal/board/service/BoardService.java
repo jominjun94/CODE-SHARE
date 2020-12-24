@@ -20,7 +20,7 @@ public class BoardService implements IBoardService {
 	@Override
 	public void share(BoardVo vo) {
 		mapper.share(vo);
-		//??s
+		
 	}
 
 	@Override
