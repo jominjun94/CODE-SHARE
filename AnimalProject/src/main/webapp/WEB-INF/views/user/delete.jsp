@@ -188,16 +188,16 @@ padding-top: 100px;
 			
 			<main>
 	
-<h2>회원 탈퇴</h2>
 
 
- <fieldset>
- <legend>회원 탈퇴</legend>
 
-아이디 : <input type="text" id ="signInId"  placeholder="ID 입력" required autofocus>
+ <fieldset style="display: inline;">
+ <legend>DELETE</legend>
+
+ID : <input type="text" id ="signInId"  placeholder="ID 입력" required autofocus>
 <!-- 비밀번호 : <input type="password" id="signInPw"   placeholder="pw 입력" required> -->
-<input type = "button" value= "전송" id = "Btnn" >
-<input type = "reset" value= "전부 지우고 다시 입력하기">
+<input type = "button" value= "SUBMIT" id = "Btnn" >
+
 
 </fieldset>
 

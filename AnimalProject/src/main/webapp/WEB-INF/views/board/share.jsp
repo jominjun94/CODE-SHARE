@@ -187,12 +187,13 @@ padding-top: 100px;
 			
 			
 			<main>
-			<h2>share your code</h2>
-<fieldset>
-<input type = "text" id = "writer" value = "${login.name}" readonly ><br>
-<input type = "text" id = "title" required><br>
-<textarea id = "content" required></textarea><br>
-<input type = "button" id = "btn" value = "등록">
+			
+<fieldset style="display: inline;">
+<legend>SHARE</legend>
+<p>Name : <input type = "text" id = "writer" value = "${login.name}" readonly ></p>
+<p>Title : <input  type = "text" id = "title" required></p>
+<p>Text : <textarea cols="30" rows="10" id = "content" required></textarea></p>
+<input type = "button" id = "btn" value = "SUBMIT">
 </fieldset>
 				
 			</main>

@@ -187,55 +187,63 @@ padding-top: 100px;
 			
 			
 			<main>
-			<span id="count-per-page" style="float: right;">
-	                     <input class="btn btn-izone" type="button" value="10">  
-	                     <input class="btn btn-izone" type="button" value="20">   
-	                     <input class="btn btn-izone" type="button" value="30">
-             </span>
-				<table border="1">
+						<span id="count-per-page" ">
+							
+	                     <i>row</i> 
+	                     <input class="btn btn-izone" type="button" value="5" >  
+	                     <input class="btn btn-izone" type="button" value="10">   
+	                     <input class="btn btn-izone" type="button" value="15">
+          				 </span>
+				<table border="1" style="text-align: center;">
+					<thead style="background-color: gray;">
 					<tr>
-						<td>번호</td>
-						<td>작성자</td>
-						<td>제목</td>
-						<td>작성일</td>
-						<td>조회수</td>
+						<td>No</td>
+						<td>Writer</td>
+						<td>Title</td>
+						<td>Date</td>
+						<td>View</td>
 					</tr>
+					</thead>
+					
 						<c:forEach var="b" items="${list}" >
 					<tr>
 						<td> ${b.boardNo} </td>
 						<td> ${b.writer} </td>
 						<td> <a href="<c:url value='/board/content?boardNo=${b.boardNo}&keyword=${page.paging.keyword}&condition=${page.paging.condition}&countPerPage=${page.paging.countPerPage}&page=${page.paging.page}'/>">${b.title} </a></td>
-						<td> <fmt:formatDate value="${b.regDate}" pattern="yyyy년 MM월 dd일 a hh:mm" />	 </td>
+						<td> <fmt:formatDate value="${b.regDate}" pattern="yyyy- MM- dd- a hh:mm" />	 </td>
 						<td> ${b.viewCnt} </td>
 					</tr>
 						</c:forEach>
-					<tr>
-						<c:if test="${page.prev}">
 						
-						<td> <a href="<c:url value='/board/list?page=${page.beginPage - 1}&keyword=${page.paging.keyword}&condition=${page.paging.condition}&countPerPage=${page.paging.countPerPage}'/>">prev</a> </td>
-						</c:if>
-						<c:forEach var="pageNum" begin="${page.beginPage}" end="${page.endPage}">
+					</table>	
 						
-						<td> <a href="<c:url value='/board/list?page=${pageNum}&keyword=${page.paging.keyword}&condition=${page.paging.condition}&countPerPage=${page.paging.countPerPage}'/>">${pageNum}</a> </td>
-					
-						 </c:forEach>
-						 <c:if test="${page.next}">
-						<td> <a href="<c:url value='/board/list?page=${page.endPage + 1}&keyword=${page.paging.keyword}&condition=${page.paging.condition}&countPerPage=${page.paging.countPerPage}'/>">next</a> </td>
-						 </c:if>
-					</tr>
-				</table>
-				<select id="condition" name="condition">                            	
+			
+							<select id="condition" name="condition">                            	
 	                            <option value="title" >제목</option>
 	                            <option value="content" >내용</option>
 	                            <option value="writer" >작성자</option>
-	                            <option value="titleContent">제목+내용</option>
-	            </select>
-				<div class="input-group">
+	           	                <option value="titleContent">제목+내용</option>
+	           				 </select>
+			
 	                            <input type="text" name="keywo"  id= "keywordInput"  placeholder="검색어">
-	                            <span>
-	                                <input type="button" value="검색"  id="searchBtn">                                       
-	                            </span>
-	            </div>	 
+	                         	<input type="button" value="검색"  id="searchBtn">                                       
+	                           
+	   
+				
+						
+						<p style="position: relative; left: 170px;">
+						<c:if test="${page.prev}">						
+						<a href="<c:url value='/board/list?page=${page.beginPage - 1}&keyword=${page.paging.keyword}&condition=${page.paging.condition}&countPerPage=${page.paging.countPerPage}'/>">prev</a> 
+						</c:if>
+						<c:forEach var="pageNum" begin="${page.beginPage}" end="${page.endPage}">
+						<a href="<c:url value='/board/list?page=${pageNum}&keyword=${page.paging.keyword}&condition=${page.paging.condition}&countPerPage=${page.paging.countPerPage}'/>">${pageNum}</a>
+						</c:forEach>
+						<c:if test="${page.next}">
+						<a href="<c:url value='/board/list?page=${page.endPage + 1}&keyword=${page.paging.keyword}&condition=${page.paging.condition}&countPerPage=${page.paging.countPerPage}'/>">next</a> 
+						</c:if>
+						</p>
+				
+		
 				
 			</main>
 		

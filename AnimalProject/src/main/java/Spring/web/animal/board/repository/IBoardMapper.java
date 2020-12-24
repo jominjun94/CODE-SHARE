@@ -13,7 +13,12 @@ public interface IBoardMapper {
 	List<BoardVo> getArticleList(SearchVO se);
 	
 	Integer countArticles (SearchVO se);
+	
 	BoardVo getcontent(Integer boardNO);
+	
 	void delete(Integer boardNO);
+	
 	void update(BoardVo vo);
+	
+	void updateViewCnt(Integer boardNo);
 }

@@ -186,31 +186,20 @@ padding-top: 100px;
 			</nav>
 			
 			
-			<main>
-		<h2>LOGIN</h2>
-
-<input type = "checkbox" id = "auto-login" name = "autoLogin">자동 로그인
- <fieldset>
- <legend>로그인 입력 폼</legend>
-<p>아이디 : <input type="text" id ="signInId" autocomplete="on" placeholder="ID 입력" required autofocus></p>
-<p>
-<label>
-비밀번호 : <input type="password" id="signInPw"  autocomplete="off" required placeholder="pw 입력">
-
-</label>
-</p>
-<p><input type = "button" value= "전송" id = "btn" ></p>
-
-<p><input type = "reset" value= "전부 지우고 다시 입력하기"></p>
+	
+	
+	<main>
 
 
-
-<p><input type = "button" value= "회원탈퇴" id = "bt" ></p>
-</fieldset>
- 
-
-
-			</main>
+ 	<fieldset style="display: inline;">
+ 	<legend>LOGIN</legend>
+ 	<input type = "checkbox" id = "auto-login" name = "autoLogin">autoLogin
+	<p>ID : <input type="text" id ="signInId" autocomplete="on" placeholder="ID" required autofocus></p>
+	<p>PW : <input type="password" id="signInPw"  autocomplete="off" required placeholder="pw"></p>
+	<input type = "button" value= "SUBMIT" id = "btn" >
+	<input type = "button" value= "DELETE" id = "bt" >
+	</fieldset>
+	</main>
 		
 		</section>
 		<footer>

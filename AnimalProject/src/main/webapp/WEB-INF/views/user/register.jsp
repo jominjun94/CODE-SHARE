@@ -187,48 +187,19 @@ padding-top: 100px;
 			
 			
 			<main>
-		<h1>회원가입</h1>
-<span id="result_id_msg"></span>
-<button id="duplicate_check" type="button">중복체크</button>
-<form id="signUpForm" action="<c:url value ='/user/register'/>" method="post" onsubmit="return check()">
-<table>
-
-<tr>
-    <td>아이디</td>
-    <td><p><strong>아이디를 입력해주세요.</strong>&nbsp;&nbsp;&nbsp;<span id="idChk"></span></p></td>
-    <td><input type="text" name="account" id = "user_id" required style="width: 99%;" /></td>
 	
-</tr>
-<tr>
-    <td>비밀번호</td>
-    <td><p><strong>비밀번호를 입력해주세요.</strong>&nbsp;&nbsp;&nbsp;<span id="pwChk"></span></p></td>
-    <td><input type="password" name="password" id ="user_pw"  required  style="width: 99%;" /></td>
-</tr>
-
-<tr>
-    <td style="width: 200px;">이름(Full Name)</td>
-    <td><p><strong>이름을 입력해주세요.</strong>&nbsp;&nbsp;&nbsp;<span id="nameChk"></span></p></td>
-    <td style="width: 390px"><input type="text" id = "user_name" name="name" required  style="width: 99%;" /></td>
-</tr>
-
-<tr>
-    <td style="width: 200px;">핸드폰번호</td>
-    <td>핸드폰번호 작성은 선택사항입니다. </td>
-    <td style="width: 390px"><input type="number" min ="0" max ="12" id ="user_tel"  name="tel" required  style="width: 99%;" /></td>
-</tr>
-<tr>
-    <td colspan="2"   style="text-align: center;font-weight: bold;">
-    	핸드폰 번호는  - 를 빼주세요 . 예) 01012345678
-    </td>
-</tr>
-</table>
-
-<div style="text-align: center;padding-bottom: 15px;">
-    <input id = "submit" type="submit" value="확인" />
-</div>
+<fieldset style="display: inline;">
+<legend>register</legend>
+ <button id="duplicate_check" type="button">duplicate_check</button> 
+<form id="signUpForm" action="<c:url value ='/user/register'/>" method="post">
+<p>ID : <input type="text" name="account" id = "user_id" required placeholder="id" ></p>
+<p>PW : <input type="password" name="password" id ="user_pw"  required placeholder="pw" ></p>
+<p>NAME : <input type="text" id = "user_name" name="name" required  placeholder="name"></p>
+<p>TEL : <input type="number" id ="user_tel"  name="tel" required placeholder="tel" ></p>
+<input id = "submit" type="submit" onclick="func_confirm()" value="submit" />
 </form>
-
-			</main>
+</fieldset>
+</main>
 		
 		</section>
 		<footer>
@@ -247,6 +218,26 @@ padding-top: 100px;
 </body>
 
 <script>
+
+
+function func_confirm () {
+	if(confirm('ok?')){
+		alert("ok");
+	} else {
+		alert("cancle");
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
 $(function() {
 	
 	
@@ -255,7 +246,7 @@ $(function() {
 	
 	
 
-	$('#user_id').on('keyup', function(){
+	$('#duplicate_check').on('click', function(){
 	
 	
 		
@@ -271,12 +262,12 @@ $(function() {
 
 		    success: function(data){
 		         if(data === 'ok'){
-		        
-		        	  $("#result_id_msg").html("사용 가능한 아이디 입니다.");
+		        	 alert("ok");
+		        	 // $("#result_id_msg").html("사용 가능한 아이디 입니다.");
 		        
 		         }else if(data === 'no'){
-		         
-		        	 $("#result_id_msg").html("사용 불가능한 아이디 입니다.");
+		        	 alert("Already exists..sorry retry");
+		        	 // $("#result_id_msg").html("사용 불가능한 아이디 입니다.");
 		         	
 		         }
 		    },

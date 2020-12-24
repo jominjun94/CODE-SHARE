@@ -159,7 +159,7 @@ padding-top: 100px;
 
 	<div class ="container">
 		<header>
-		CODE CONTENT
+		CODE CONTENTS
 		</header>
 		
 		<section class = "content">
@@ -188,20 +188,13 @@ padding-top: 100px;
 			
 			<main>
 	 
-	 			<table border="1">
-	 				<tr>
-	 					<td>번호</td>
-	 					<td>작성자</td>
-	 					<td>이름</td>
-	 					<td>내용</td>
-	 				</tr>
-	 				<tr>
-	 					<td>${get.boardNo}</td>
-	 					<td>${get.content}</td>
-	 					<td>${get.writer}</td>
-	 					<td>${get.title}</td>
-	 				</tr>
-				</table>
+	 	<fieldset style="display: inline;">
+<legend>contents</legend>
+<p>No : <input type = "text" id = "writer" value = "${get.boardNo}" readonly ></p>
+<p>Name : <input type = "text" id = "writer" value = "${get.writer}" readonly ></p>
+<p>Title : <input  type = "text" id = "title"value = "${get.title}" readonly></p>
+<p>Text : <textarea cols="30" rows="10" id = "content" readonly>${get.content}</textarea></p>
+
 				<input type ="button" id = "back" value ="back">
 				<c:if test = "${login.name == get.writer}">
 				<input type ="button" id = "modify" value ="변경">
@@ -209,6 +202,8 @@ padding-top: 100px;
 				<c:if test = "${login.name == get.writer}">
 				<input type ="button" id = "delete" value ="삭제">
 				</c:if>
+</fieldset>
+				
 			</main>
 		
 		</section>
