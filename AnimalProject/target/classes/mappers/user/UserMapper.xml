@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Spring.web.animal.user.repository.IUserMapper">
+
+<resultMap id = "UserMap" type = "Spring.web.animal.user.model.UserVO">
+		
+		<result property="account" column="account" />
+		<result property="password" column="password" />
+		<result property="name" column="name" />
+		<result property="tel" column="tel" />
+		<result property="sessionId" column="session_id" />
+		<result property="limitTime" column="limit_time" />
+	
+</resultMap>
+
+<insert id="register">
+
+insert into animal_user
+(account, password, name ,tel) 
+VALUES (#{account}, #{password}, #{name} ,#{tel})
+</insert>
+
+
+<select id="Id_Check" resultMap="UserMap">
+SELECT account FROM animal_user where account = #{id}
+</select>
+
+
+
+
+<select id="selectOne" resultMap="UserMap">
+		SELECT * FROM animal_user
+		WHERE account=#{account}	
+</select>
+
+
+
+<delete id = "delete">
+	DELETE FROM animal_user
+	WHERE account=#{account}	
+
+</delete>
+
+<!-- 회원 가입 로직  -->
+<!-- 아이디 중복   -->
+<!-- 회원탈퇴 -->
+<!--회원 정보 가져오기 -->
+<!-- 자동로그인을 위한 sessionid저장 -->
+
+<update id = "keep">
+	UPDATE animal_user
+	SET session_id =#{sessionId},
+		limit_time =#{limitDate}
+	WHERE account=#{account}
+</update>
+
+<select id = "getUserWithSessionId" resultMap="UserMap">
+	SELECT * FROM animal_user
+	WHERE session_id =#{sessionId}
+</select>
+
+
+	
+
+</mapper>
+
+
+
+
+

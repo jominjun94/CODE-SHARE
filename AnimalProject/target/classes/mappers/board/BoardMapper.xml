@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Spring.web.animal.board.repository.IBoardMapper">
+
+<resultMap id = "BoardMap" type = "Spring.web.animal.board.model.BoardVo">
+
+		<id property="boardNo" column="board_no"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="writer" column="writer"/>
+		<result property="regDate" column="reg_date"/>
+		<result property="viewCnt" column="view_cnt"/>
+
+</resultMap>
+
+
+
+
+
+
+<select id="getArticleList" resultMap="BoardMap">
+		SELECT * 
+		FROM animal_board 		
+		<if test="condition == 'title'">
+		WHERE title LIKE CONCAT('%', #{keyword},'%')
+		</if>
+		<if test="condition == 'writer'">
+		WHERE writer LIKE CONCAT('%', #{keyword},'%')
+		</if>
+		<if test="condition == 'content'">
+		WHERE content LIKE CONCAT('%', #{keyword},'%')
+		</if>
+		<if test="condition == 'titleContent'">
+		WHERE title LIKE CONCAT('%', #{keyword},'%')
+		 OR content LIKE CONCAT('%', #{keyword},'%')
+		</if>
+		ORDER BY board_no DESC 
+		  LIMIT #{pageStart}, #{countPerPage}
+	</select>
+
+
+
+<insert id="share">
+		INSERT INTO animal_board 
+		  (title, content, writer)
+		VALUES (#{title}, #{content}, #{writer})
+</insert>
+
+<select id = "countArticles" resultType="int">
+		SELECT COUNT(*)
+		FROM animal_board
+		<if test="condition == 'title'">
+		WHERE title LIKE CONCAT('%', #{keyword},'%')
+		</if>
+		<if test="condition == 'writer'">
+		WHERE writer LIKE CONCAT('%', #{keyword},'%')
+		</if>
+		<if test="condition == 'content'">
+		WHERE content LIKE CONCAT('%', #{keyword},'%')
+		</if>
+		<if test="condition == 'titleContent'">
+		WHERE title LIKE CONCAT('%', #{keyword},'%')
+		 OR content LIKE CONCAT('%', #{keyword},'%')
+		</if>
+</select>
+
+<select id = "getcontent" resultMap="BoardMap">
+
+SELECT * FROM animal_board WHERE board_no = #{boardNo}
+
+</select>
+
+
+
+<delete id = "delete">
+
+ DELETE FROM animal_board WHERE board_no = #{boardNo}
+ 
+</delete>
+
+
+
+
+<update id="update">
+        UPDATE animal_board
+        SET title = #{title}, content = #{content}
+        WHERE board_no = #{boardNo}
+</update>
+
+
+
+
+
+
+
+
+
+
+</mapper>
