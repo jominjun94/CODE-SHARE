@@ -18,8 +18,6 @@
 
 
 
-
-
 <select id="getArticleList" resultMap="BoardMap">
 		SELECT * 
 		FROM animal_board 		

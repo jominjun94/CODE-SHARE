@@ -3,7 +3,7 @@ package Spring.web.animal.commons.PageCreator;
 import Spring.web.animal.board.controller.SearchVO;
 
 public class PageCreator {
-
+    //countPerPage page
 	private SearchVO paging;
 	private Integer articleTotalCount;//게시판의 총 게시물 수
 	private Integer beginPage; //시작 페이지 번호
@@ -12,7 +12,6 @@ public class PageCreator {
 	private boolean next; //다음 버튼 활성화 여부
 	
 	private final Integer displayPageNum = 5;
-	
 	private void calDataOfPage() {
 		
 		endPage = 

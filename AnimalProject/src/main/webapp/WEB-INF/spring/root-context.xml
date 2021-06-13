@@ -7,7 +7,7 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<!-- 히카리 커넥션풀 빈 등록 -->
+	<!-- 히카리 커넥션 풀 빈 등록 -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/spring?serverTimezone=Asia/Seoul" />
@@ -26,7 +26,7 @@
 		<property name="mapperLocations" value="classpath:/mappers/**/*Mapper.xml" />
 	</bean>
 	
-	
+	<!--해당 패키지를 스캔하여 xml파일을 객체(bean)로 생성 -->
 	<mybatis-spring:scan base-package="Spring.web.animal.user.repository"/>
 	<mybatis-spring:scan base-package="Spring.web.animal.board.repository"/>
 </beans>

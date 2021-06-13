@@ -12,7 +12,6 @@
 		<result property="tel" column="tel" />
 		<result property="sessionId" column="session_id" />
 		<result property="limitTime" column="limit_time" />
-	
 </resultMap>
 
 <insert id="register">

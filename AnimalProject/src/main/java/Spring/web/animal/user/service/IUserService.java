@@ -6,7 +6,6 @@ import Spring.web.animal.user.model.UserVO;
 
 public interface IUserService {
 
-	
 	void register(UserVO vo);
 	public UserVO Id_Check(String id);
 	UserVO selectOne(String account);

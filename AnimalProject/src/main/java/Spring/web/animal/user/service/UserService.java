@@ -15,7 +15,7 @@ import Spring.web.animal.user.repository.IUserMapper;
 public class UserService implements IUserService {
 
 	
-	@Autowired ////
+	@Autowired 
 	private IUserMapper mapper;
 	
 	@Override

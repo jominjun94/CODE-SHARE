@@ -10,7 +10,6 @@ public class SearchVO {
 	
 	
 	
-	
 	public SearchVO(Integer page, Integer countPerPage, String keyword, String condition) {
 		
 		this.page = 1;

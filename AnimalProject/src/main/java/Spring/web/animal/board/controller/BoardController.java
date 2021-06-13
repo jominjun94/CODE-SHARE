@@ -18,10 +18,9 @@ import Spring.web.animal.commons.PageCreator.PageCreator;
 @RequestMapping("/board")
 public class BoardController {
 
-	
 	@Autowired
 	private IBoardService service;
-	
+	//keyword condition countPerPage page
 	@GetMapping("/list")
 	public ModelAndView list1(SearchVO se) {
 		ModelAndView mav = new ModelAndView();
@@ -29,10 +28,10 @@ public class BoardController {
 		pc.setPaging(se);
 		List<BoardVo> svo = service.getArticleList(se);
 		pc.setArticleTotalCount(service.countArticles(se));
-		
+		//beginPage endPage prev next
 		
 		mav.addObject("list",svo);
-		mav.addObject("page",pc);
+		mav.addObject("page",pc); // 
 		mav.setViewName("board/list");
 
 		return mav;

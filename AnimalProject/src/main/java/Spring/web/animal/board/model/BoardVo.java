@@ -6,7 +6,6 @@ import java.util.Date;
 public class BoardVo {
 	
 	
-	
 	private Integer boardNo;
 	private String title;
 	private String content;

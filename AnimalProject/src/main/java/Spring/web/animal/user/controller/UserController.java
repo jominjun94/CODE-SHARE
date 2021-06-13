@@ -1,7 +1,5 @@
 package Spring.web.animal.user.controller;
 
-
-
 import java.util.Date;
 
 import javax.servlet.http.Cookie;
@@ -87,7 +85,7 @@ public class UserController {
 	
 	
 	
-	@PostMapping("/login")
+	@PostMapping("/login")//account password autoLogin
 	public String login(@RequestBody UserVO inputdata, HttpSession session,HttpServletResponse response) {
 		String result = null;
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -102,17 +100,16 @@ public class UserController {
 				result = "loginSuccess";
 				if(inputdata.isAutoLogin()) {
 					Cookie logincookie = new Cookie("loginCookie" ,session.getId());
-					//logincookie.setPath("/user/");
 					logincookie.setMaxAge((int)limitTime);
 					response.addCookie(logincookie);
 					
 					long expiredDate = System.currentTimeMillis() + (limitTime * 1000);
 					Date limitDate = new Date(expiredDate);
 					service.keep(session.getId(), limitDate, inputdata.getAccount());
-				}
+											}
 				
-			}else {
-				result = "pwFail";
+				}else {
+					result = "pwFail";
 			}
 		} else {
 			result = "idFail";

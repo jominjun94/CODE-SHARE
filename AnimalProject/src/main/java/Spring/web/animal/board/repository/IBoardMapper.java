@@ -7,7 +7,6 @@ import Spring.web.animal.board.model.BoardVo;
 
 public interface IBoardMapper {
 
-	
 	void share(BoardVo vo);
 	
 	List<BoardVo> getArticleList(SearchVO se);

@@ -16,7 +16,6 @@ import Spring.web.animal.user.service.IUserService;
 
 public class AutoLogininterceptor extends HandlerInterceptorAdapter {
 
-	
 	@Autowired
 	IUserService service;
 	

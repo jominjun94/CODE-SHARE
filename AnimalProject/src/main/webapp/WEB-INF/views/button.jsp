@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <script src="/resources/js/ex.js"></script>
-<title>Insert title here</title>
+<title>Insert title  here</title>
 </head>
 <body>
 <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>

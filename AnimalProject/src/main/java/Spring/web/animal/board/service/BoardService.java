@@ -13,7 +13,6 @@ import Spring.web.animal.board.repository.IBoardMapper;
 @Service
 public class BoardService implements IBoardService {
 
-	
 	@Autowired
 	private IBoardMapper mapper;
 

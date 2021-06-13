@@ -31,7 +31,7 @@ public class PageInterceptor extends HandlerInterceptorAdapter {
 			}
 			
 			return true;
-		}
+}
 		
 	}
 

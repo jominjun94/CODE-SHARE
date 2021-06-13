@@ -7,7 +7,6 @@ import Spring.web.animal.user.model.UserVO;
 
 public interface IUserMapper {
 
-	
 	void register(UserVO vo);
 	UserVO Id_Check(String id);
 	UserVO selectOne(String account);

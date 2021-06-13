@@ -17,5 +17,4 @@ public interface IBoardService {
 	
 	void delete(Integer boardNO);
 	
-	void update(BoardVo vo);
-}
+	void update(BoardVo vo);}

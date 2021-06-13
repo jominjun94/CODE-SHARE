@@ -7,7 +7,7 @@
 
 <!DOCTYPE html>
 <html>
-<!-- 헤드는 본문이 아닌 태그다  -->
+<!-- 헤드는 본문 이 아닌 태그다  -->
 <head>
 <link rel="stylesheet" href= "/resources/css/fontello.css">
 <link rel="stylesheet" href= "/resources/css/buttons.css">
